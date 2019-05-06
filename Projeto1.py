@@ -5,24 +5,24 @@ while True:
 
 	buttonpress = buttonState.read()
 	if buttonpress == b'1':
-		print("Sou lindo")
-		arq.writelines('Sou lindo')
+		print("Muito triste")
+		arq.writelines('Muito triste')
 		break
 	elif buttonpress == b'2':
-		print("Estou Feliz")
-		arq.writelines('Estou Feliz')
+		print("Triste")
+		arq.writelines('Triste')
 		break 
 	elif buttonpress == b'3':
-		print("to puto")
-		arq.writelines('to puto')
+		print("Indiferente")
+		arq.writelines('Indiferente')
 		break
 	elif buttonpress == b'4':
-		print("triste")
-		arq.writelines('triste')
+		print("Feliz")
+		arq.writelines('Feliz')
 		break
 	elif buttonpress == b'5':
-		print("nervouser")
-		arq.writelines('nervouser')
+		print("Muitop feliz")
+		arq.writelines('Muito feliz')
 		break
 		
 arq.close()
