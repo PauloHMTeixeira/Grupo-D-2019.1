@@ -16,23 +16,23 @@ while True:
         break
     elif buttonpress == b'2':
         t = t + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf)
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf)
+        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
         break
     elif buttonpress == b'3':
         i = i + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf)
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf)
+        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
         break
     elif buttonpress == b'4':
         f = f + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf)
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf)
+        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
         break
     elif buttonpress == b'5':
         mf = mf + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf)
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf)
+        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
         break
 
 arq.close()
