@@ -11,28 +11,28 @@ while True:
     buttonpress = buttonState.read()
     if buttonpress == b'1':
         e = e + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
+        print("identificacao, {}, {}, {}, {}, {}" .format(e, a, n, f, t))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(e, a, n, f, t))
         break
     elif buttonpress == b'2':
         a = a + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
+        print("identificacao, {}, {}, {}, {}, {}" .format(e, a, n, f, t))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(e, a, n, f, t))
         break
     elif buttonpress == b'3':
         n = n + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
+        print("identificacao, {}, {}, {}, {}, {}" .format(e, a, n, f, t))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(e, a, n, f, t))
         break
     elif buttonpress == b'4':
         f = f + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
+        print("identificacao, {}, {}, {}, {}, {}" .format(e, a, n, f, t))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(e, a, n, f, t))
         break
     elif buttonpress == b'5':
         t = t + 1
-        print("identificacao, {}, {}, {}, {}, {}" .format(mt, t, i, f, mf))
-        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(mt, t, i, f, mf))
+        print("identificacao, {}, {}, {}, {}, {}" .format(e, a, n, f, t))
+        arq.writelines('identificacao, {}, {}, {}, {}, {}' .format(e, a, n, f, t))
         break
 
 arq.close()
