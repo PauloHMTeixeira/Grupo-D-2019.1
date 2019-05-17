@@ -30,7 +30,6 @@ while True:
 
 
         buttonpress = buttonState.read()
-        open(csvfile, "w")
         if buttonpress == b'1':
             perfil1['estressado'] += 1
             if buttonpress == b'2':
@@ -99,11 +98,13 @@ while True:
         if buttonpress == b'6':
             break
 
-        csvData = [['ID', 'Estressado', 'Ansioso', 'Neutro', 'Feliz', 'Triste'],
-                   [ide, estressado, ansioso, neutro, feliz, triste]]
+open(csvfile, "w")
 
-        with open('Untitled.csv', 'w') as csvFile:
-            writer = csv.writer(csvFile)
-            writer.writerows(csvData)
+csvData = [['ID', 'Estressado', 'Ansioso', 'Neutro', 'Feliz', 'Triste'],
+            [ide, estressado, ansioso, neutro, feliz, triste]]
 
-        csvFile.close()
+with open('Untitled.csv', 'w') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerows(csvData)
+
+csvFile.close()
