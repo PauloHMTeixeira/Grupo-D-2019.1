@@ -8,7 +8,7 @@ neutro = 0
 feliz = 0
 triste = 0
 userhome = os.path.expanduser('~')
-csvfile = os.path.join(userhome, 'PyCharmProjects', 'Untitled.csv')
+csvfile = os.path.join(userhome, 'PyCharmProjects', 'Untitled.csv') # --------- Criação de variáveis p facilitar o trabalho.
 
 
 
@@ -19,7 +19,7 @@ def criar_perfil(identificacao, estressado, ansioso, neutro, feliz, triste):
 
 perfil1 = criar_perfil('alicia', 0, 0, 0, 0, 0)
 perfil2 = criar_perfil('caio', 0, 0, 0, 0, 0)
-
+# -------------------------- Aqui onde os perfis ficam sendo criados, perfil3, perfil4 ... perfil1bilhão.
 
 while True:
     ide = input('digite o usuario ')
@@ -53,12 +53,15 @@ while True:
     print('----------------')
     print(perfil2)
 
-open(csvfile, "w")
+open(csvfile, "w") # ------------- Obrigatoriamente a parte de escrita em arquivo deve vir depois de tudo p que dê "tempo" das
+# -------------------------------- variáveis serem alteradas.
 
 
 csvData = [['ID',  'Estressado', 'Ansioso', 'Neutro', 'Feliz', 'Triste'],
             [perfil1['id'],  perfil1['estressado'], perfil1['ansioso'], perfil1['neutro'], perfil1['feliz'], perfil1['triste']],
             [perfil2['id'],  perfil2['estressado'], perfil2['ansioso'], perfil2['neutro'], perfil2['feliz'], perfil2['triste']]]
+# ----- MUITO CUIDADO com essa parte do csvData, é frescura p cacete e foi onde perdi a maioria do meu tempo.
+
 
 with open('Untitled.csv', "w") as csvFile:
     writer = csv.writer(csvFile)
