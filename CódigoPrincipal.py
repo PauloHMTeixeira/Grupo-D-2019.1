@@ -1,110 +1,58 @@
-import csv
-import os
-import serial
+import serial #conexão com porta serial
+leitura_byte_rfid = 12 #limita tamanho da tag lida??
 
-buttonState = serial.Serial('entrada', baudrate=9600, timeout=0.3)
-estressado = 0
-ansioso = 0
-neutro = 0
-feliz = 0
-triste = 0
-identificacao = ''
-userhome = os.path.expanduser('~')
-csvfile = os.path.join(userhome, 'PyCharmProjects', 'Untitled.csv')
+#leitura dos botões
+buttonState = serial.Serial('COM6', baudrate = 9600, timeout = 0.3) #lê estado dos butões  
 
+#leitura do RFID
+RFID = serial.Serial('COM6', baudrate = 9600) #conectando com leitura do RFID
 
-def criar_perfil(identificacao, estressado, ansioso, neutro, feliz, triste):
-    perfil = {"id": identificacao, "estressado": estressado, "ansioso": ansioso, "neutro": neutro, "feliz": feliz, "triste": triste}
-    return perfil
+while True: 
+	tag_lida = RFID.read(leitura_byte_rfid) #lê tag do crachá
+	#if tag_lida != 0:
+	if len(tag_lida) != 0: #alternativo: == (leitura_byte_rfid - 1)
+		print("Olá, ", tag_lida, "como está se sentindo hoje?") 
 
+		buttonpress = buttonState.read()
 
-perfil1 = criar_perfil('Alicia', 0, 0, 0, 0, 0)
-perfil2 = criar_perfil('caio', 0, 0, 0, 0, 0)
+		if buttonpress == b'1':
 
+			print("Estressado")
 
-while True:
-    ide = input('digite o usuario ')
-    emc = input('digite sua emocao ')
+			arq.writelines('Estressado')
 
-    if ide == 'Alicia':
+			break
 
+		elif buttonpress == b'2':
 
-        buttonpress = buttonState.read()
-        if buttonpress == b'1':
-            perfil1['estressado'] += 1
-            if buttonpress == b'2':
-                perfil1['ansioso'] += 1
-            if buttonpress == b'3':
-                perfil1['neutro'] += 1
-            if buttonpress == b'4':
-                perfil1['feliz'] += 1
-            if buttonpress == b'5':
-                perfil1['triste'] += 1
-            if buttonpress == b'6':
-                break
+			print("Ansioso")
 
-        if buttonpress == b'2':
-            perfil1['ansioso'] += 1
-            if buttonpress == b'1':
-                perfil1['estressado'] += 1
-            if buttonpress == b'3':
-                perfil1['neutro'] += 1
-            if buttonpress == b'4':
-                perfil1['feliz'] += 1
-            if buttonpress == b'5':
-                perfil1['triste'] += 1
-            if buttonpress == b'6':
-                break
+			arq.writelines('Ansioso')
 
-        if buttonpress == b'3':
-            perfil1['neutro'] += 1
-            if buttonpress == b'1':
-                perfil1['estressado'] += 1
-            if buttonpress == b'2':
-                perfil1['ansioso'] += 1
-            if buttonpress == b'4':
-                perfil1['feliz'] += 1
-            if buttonpress == b'5':
-                perfil1['triste'] += 1
-            if buttonpress == b'6':
-                break
+			break
 
-        if buttonpress == b'4':
-            perfil1['feliz'] += 1
-            if buttonpress == b'1':
-                perfil1['estressado'] += 1
-            if buttonpress == b'2':
-                perfil1['ansioso'] += 1
-            if buttonpress == b'3':
-                perfil1['neutro'] += 1
-            if buttonpress == b'5':
-                perfil1['triste'] += 1
-            if buttonpress == b'6':
-                break
+		elif buttonpress == b'3':
 
-        if buttonpress == b'5':
-            perfil1['triste'] += 1
-            if buttonpress == b'1':
-                perfil1['estressado'] += 1
-            if buttonpress == b'2':
-                perfil1['ansioso'] += 1
-            if buttonpress == b'3':
-                perfil1['neutro'] += 1
-            if buttonpress == b'4':
-                perfil1['feliz'] += 1
-            if buttonpress == b'6':
-                break
+			print("Neutro")
 
-        if buttonpress == b'6':
-            break
+			arq.writelines('Neutro')
 
-open(csvfile, "w")
+			break
 
-csvData = [['ID', 'Estressado', 'Ansioso', 'Neutro', 'Feliz', 'Triste'],
-            [ide, estressado, ansioso, neutro, feliz, triste]]
+		elif buttonpress == b'4':
 
-with open('Untitled.csv', 'w') as csvFile:
-    writer = csv.writer(csvFile)
-    writer.writerows(csvData)
+			print("Feliz")
 
-csvFile.close()
+			arq.writelines('Feliz')
+
+			break
+
+		elif buttonpress == b'5':
+
+			print("Triste")
+
+			arq.writelines('Triste')
+
+			break
+
+print("obrigado(a)!")
