@@ -28,6 +28,18 @@ else:
         "Feliz": 0,
         "Triste": 0,
     }
+    if y in data:
+        x = input('Como você está se sentindo? ')
+        if x == 'Estressado':
+            data[y]['Estressado'] += 1
+        if x == 'Ansioso':
+            data[y]['Ansioso'] += 1
+        if x == 'Neutro':
+            data[y]['Neutro'] += 1
+        if x == 'Triste':
+            data[y]['Triste'] += 1
+        if x == 'Feliz':
+            data[y]['Feliz'] += 1
 
     with open("data_file.json", "a") as jsonFile:
         json.dump(data, jsonFile, indent=4)
