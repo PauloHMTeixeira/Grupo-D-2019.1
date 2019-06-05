@@ -1,58 +1,81 @@
-import serial #conexão com porta serial
-leitura_byte_rfid = 12 #limita tamanho da tag lida??
+import json
+import serial
 
-#leitura dos botões
-buttonState = serial.Serial('COM6', baudrate = 9600, timeout = 0.3) #lê estado dos butões  
+# Leitura da porta serial
+Arduino = serial.Serial('COM9', baudrate=9600) #conectando com leitura do RFID e dos botões.
 
-#leitura do RFID
-RFID = serial.Serial('COM6', baudrate = 9600) #conectando com leitura do RFID
+#leitura do crachá
+tag_lida = Arduino.readline() #leitura da ID
+tag_decode = tag_lida.decode('utf-8')
+tag_decode = tag_decode.replace('\r\n', '')
 
-while True: 
-	tag_lida = RFID.read(leitura_byte_rfid) #lê tag do crachá
-	#if tag_lida != 0:
-	if len(tag_lida) != 0: #alternativo: == (leitura_byte_rfid - 1)
-		print("Olá, ", tag_lida, "como está se sentindo hoje?") 
+y = tag_decode
 
-		buttonpress = buttonState.read()
+print('Sua ID é: {}' .format(y))
 
-		if buttonpress == b'1':
+buttonpress = Arduino.readline()
+buttonpress = buttonpress.decode('utf-8') #decodificação
+buttonpress = buttonpress.replace('\r\n', '')
 
-			print("Estressado")
+with open("data_file.json", "r+") as f:
+    data = json.load(f)
 
-			arq.writelines('Estressado')
 
-			break
+if y in data:
+    print('Como você está se sentindo? ')
+    if buttonpress == "1":
+        data[y]['Estressado'] += 1
+        print('Estressado')
 
-		elif buttonpress == b'2':
+    if buttonpress == "2":
+        data[y]['Ansioso'] += 1
+        print('Ansioso')
 
-			print("Ansioso")
+    if buttonpress == "3":
+        data[y]['Neutro'] += 1
+        print('Neutro')
 
-			arq.writelines('Ansioso')
+    if buttonpress == "4":
+        data[y]['Triste'] += 1
+        print('Triste')
 
-			break
+    if buttonpress == "5":
+        data[y]['Feliz'] += 1
+        print('Feliz')
+else:
+    data[y] = {
+        "Estressado": 0,
+        "Ansioso": 0,
+        "Neutro": 0,
+        "Feliz": 0,
+        "Triste": 0,
+    }
+    
+    print('Como você está se sentindo? ')
+    if buttonpress == "1":
+        data[y]['Estressado'] += 1
+        print('Estressado')
 
-		elif buttonpress == b'3':
+    if buttonpress == "2":
+        data[y]['Ansioso'] += 1
+        print('Ansioso')
 
-			print("Neutro")
+    if buttonpress == "3":
+        data[y]['Neutro'] += 1
+        print('Neutro')
 
-			arq.writelines('Neutro')
+    if buttonpress == "4":
+        data[y]['Triste'] += 1
+        print('Triste')
 
-			break
+    if buttonpress == "5":
+        data[y]['Feliz'] += 1
+        print('Feliz')
 
-		elif buttonpress == b'4':
+    with open("data_file.json", "a") as jsonFile:
+        json.dump(data, jsonFile, indent=4)
 
-			print("Feliz")
+print(data[y])
 
-			arq.writelines('Feliz')
-
-			break
-
-		elif buttonpress == b'5':
-
-			print("Triste")
-
-			arq.writelines('Triste')
-
-			break
-
-print("obrigado(a)!")
+with open("data_file.json", "w") as jsonFile:
+    json.dump(data, jsonFile, indent=4)
