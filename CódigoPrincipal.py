@@ -43,6 +43,12 @@ if y in data:
         data[y]['Feliz'] += 1
         print('Feliz')
 else:
+    nome = input('Qual seu nome completo (sem "de" e "e")? ')
+    nome2 = nome.lower().split(" ")
+    email = ""
+    for i in nome2:
+        email += i[0]
+    email += "@cesar.school"
     data[y] = {
         "Estressado": 0,
         "Ansioso": 0,
