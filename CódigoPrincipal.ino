@@ -13,8 +13,6 @@ const int buttonPin2 = 3;
 const int buttonPin3 = 4;
 const int buttonPin4 = 5;
 const int buttonPin5 = 6;
-//const int buttonPin6 = 7;
-//const int buttonPin7 = 8;
 
 void mensagemInicial()
 {
