@@ -10,9 +10,13 @@ tag_decode = tag_lida.decode('utf-8')
 tag_decode = tag_decode.replace('\r\n', '')
 
 # envio do feedback
-teto = 4
+tetoansioso = 4
+tetotriste = 4
+tetoestressado = 4
+tetoneutro = 4
+tetofeliz = 4
 
-def enviaremail():
+def enviaremailansioso():
     import smtplib, ssl
     from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
@@ -25,30 +29,178 @@ def enviaremail():
     message["Subject"] = "multipart test"
     message["From"] = sender_email
     message["To"] = receiver_email
-    textestressado = """\
-        Estamos cientes da sua situação e gostaria bastante de poder ajudar de forma mais presente, entre em contato com a nossa psicóloga,
-         Ana Carolina, via número de telefone 00000-0000
+    textansioso = """\
+        Olá, notamos vários reports mostrando que você está bastante ansioso(a). Nossa psicóloga está disponível para tentar te ajudar, ela pode 
+        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
         """
-    htmlestressado = """\
+    htmlansioso = """\
         <html>
             <body>
-                <p>Estamos cientes da sua situação e gostaria bastante de poder ajudar de forma mais presente, entre em contato com a nossa psicóloga,
-         Ana Carolina, via número de telefone 00000-0000
+                <p>Olá, notamos vários reports mostrando que você está bastante ansioso(a). Nossa psicóloga está disponível para tentar te ajudar, ela pode 
+        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
                 </p>
 
             </body>
         </html>
         """
-    part1 = MIMEText(textestressado, "plain")
-    part2 = MIMEText(htmlestressado, "html")
+    part1 = MIMEText(textansioso, "plain")
+    part2 = MIMEText(htmlansioso, "html")
     message.attach(part1)
     message.attach(part2)
 
     context = ssl.create_default_context()
+    print('banana')
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message.as_string())
 
+def enviaremailtriste():
+    import smtplib, ssl
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    port = 465
+    password = 'cesarschool123'
+    sender_email = 'humorcesar@gmail.com'
+    receiver_email = data[y]['E-mail']
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    textansioso = """\
+        Olá, notamos vários reports mostrando que você está bastante triste recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te 
+        ajudar, ela pode te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        """
+    htmlansioso = """\
+        <html>
+            <body>
+                <p>Olá, notamos vários reports mostrando que você está bastante triste recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te ajudar, ela pode 
+        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+                </p>
+
+            </body>
+        </html>
+        """
+    part1 = MIMEText(textansioso, "plain")
+    part2 = MIMEText(htmlansioso, "html")
+    message.attach(part1)
+    message.attach(part2)
+
+    context = ssl.create_default_context()
+    print('banana')
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
+
+def enviaremailestressado():
+    import smtplib, ssl
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    port = 465
+    password = 'cesarschool123'
+    sender_email = 'humorcesar@gmail.com'
+    receiver_email = data[y]['E-mail']
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    textansioso = """\
+        Olá, notamos vários reports mostrando que você está bastante estressado recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te 
+        ajudar, ela pode te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        """
+    htmlansioso = """\
+        <html>
+            <body>
+                <p>Olá, notamos vários reports mostrando que você está bastante estressado recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te ajudar, ela pode 
+        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+                </p>
+
+            </body>
+        </html>
+        """
+    part1 = MIMEText(textansioso, "plain")
+    part2 = MIMEText(htmlansioso, "html")
+    message.attach(part1)
+    message.attach(part2)
+
+    context = ssl.create_default_context()
+    print('banana')
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
+
+def enviaremailneutro():
+    import smtplib, ssl
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    port = 465
+    password = 'cesarschool123'
+    sender_email = 'humorcesar@gmail.com'
+    receiver_email = data[y]['E-mail']
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    textansioso = """\
+        FALTA ESCREVER
+        """
+    htmlansioso = """\
+        <html>
+            <body>
+                <p>FALTA ESCREVER!
+                </p>
+
+            </body>
+        </html>
+        """
+    part1 = MIMEText(textansioso, "plain")
+    part2 = MIMEText(htmlansioso, "html")
+    message.attach(part1)
+    message.attach(part2)
+
+    context = ssl.create_default_context()
+    print('banana')
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
+
+def enviaremailfeliz():
+    import smtplib, ssl
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    port = 465
+    password = 'cesarschool123'
+    sender_email = 'humorcesar@gmail.com'
+    receiver_email = data[y]['E-mail']
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "multipart test"
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    textansioso = """\
+        FALTA ESCREVER
+        """
+    htmlansioso = """\
+        <html>
+            <body>
+                <p>FALTA ESCREVER
+                </p>
+
+            </body>
+        </html>
+        """
+    part1 = MIMEText(textansioso, "plain")
+    part2 = MIMEText(htmlansioso, "html")
+    message.attach(part1)
+    message.attach(part2)
+
+    context = ssl.create_default_context()
+    print('banana')
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
 y = tag_decode
 
 print('Sua ID é: {}' .format(y))
@@ -66,27 +218,41 @@ if y in data:
     if buttonpress == "1":
         data[y]['Estressado'] += 1
         print('Estressado')
+        if data[y]['Estressado'] == tetoestressado:
+            enviaremailestressado()
+            tetoestressado += 4
 
     if buttonpress == "2":
         data[y]['Ansioso'] += 1
         print('Ansioso')
+        if data[y]['Ansioso'] == tetoansioso:
+            enviaremailansioso()
+            tetoansioso += 4
+        
 
     if buttonpress == "3":
         data[y]['Neutro'] += 1
         print('Neutro')
+        if data[y]['Neutro'] == tetoneutro:
+            enviaremailneutro()
+            tetoneutro += 4
 
     if buttonpress == "4":
         data[y]['Triste'] += 1
         print('Triste')
+        if data[y]['Triste'] == tetotriste:
+            enviaremailtriste()
+            tetotriste += 4
+        
 
     if buttonpress == "5":
         data[y]['Feliz'] += 1
         print('Feliz')
+        if data[y]['Feliz'] == tetofeliz:
+            enviaremailfeliz()
+            tetofeliz += 4
         
-    # precisa ajeitar aqui!!
-    if data[y][x] == teto:
-        enviaremail()
-        teto += 4
+
 else:
     nome = input('Qual seu nome completo (sem "de" e "e")? ')
     nome2 = nome.lower().split(" ")
