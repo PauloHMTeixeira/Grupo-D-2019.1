@@ -265,6 +265,8 @@ else:
         email += i[0]
     email += "@cesar.school"
     data[y] = {
+        "Nome": nome,
+        "E-mail": email,
         "Estressado": 0,
         "Ansioso": 0,
         "Neutro": 0,
