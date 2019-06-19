@@ -31,13 +31,13 @@ def enviaremailansioso():
     message["To"] = receiver_email
     textansioso = """\
         Olá, notamos vários reports mostrando que você está bastante ansioso(a). Nossa psicóloga está disponível para tentar te ajudar, ela pode 
-        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
         """
     htmlansioso = """\
         <html>
             <body>
                 <p>Olá, notamos vários reports mostrando que você está bastante ansioso(a). Nossa psicóloga está disponível para tentar te ajudar, ela pode 
-        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
                 </p>
 
             </body>
@@ -69,13 +69,13 @@ def enviaremailtriste():
     message["To"] = receiver_email
     textansioso = """\
         Olá, notamos vários reports mostrando que você está bastante triste recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te 
-        ajudar, ela pode te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        ajudar, ela pode te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
         """
     htmlansioso = """\
         <html>
             <body>
                 <p>Olá, notamos vários reports mostrando que você está bastante triste recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te ajudar, ela pode 
-        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
                 </p>
 
             </body>
@@ -107,13 +107,13 @@ def enviaremailestressado():
     message["To"] = receiver_email
     textansioso = """\
         Olá, notamos vários reports mostrando que você está bastante estressado recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te 
-        ajudar, ela pode te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        ajudar, ela pode te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
         """
     htmlansioso = """\
         <html>
             <body>
                 <p>Olá, notamos vários reports mostrando que você está bastante estressado recentemente e isso não é nada bom. Nossa psicóloga está disponível para tentar te ajudar, ela pode 
-        te dar ótimas dicas! Entre em contato indo até ela ou pelo número XXXXX-XXXX
+        te dar ótimas dicas! Entre em contato com ela através da própria School ou pelo ramal.
                 </p>
 
             </body>
@@ -144,12 +144,14 @@ def enviaremailneutro():
     message["From"] = sender_email
     message["To"] = receiver_email
     textansioso = """\
-        FALTA ESCREVER
+        Para nós, sentimento de neutralidade é quase satisfação, mas estamos dispostos a melhorar isso! Entre em contato com 
+        algum de nossos coordenadores/professores para juntos melhorarmos sua experiência Cesar School!
         """
     htmlansioso = """\
         <html>
             <body>
-                <p>FALTA ESCREVER!
+                <p>Para nós, sentimento de neutralidade é quase satisfação, mas estamos dispostos a melhorar isso! Entre em contato com 
+        algum de nossos coordenadores/professores para juntos melhorarmos sua experiência Cesar School!
                 </p>
 
             </body>
@@ -180,12 +182,14 @@ def enviaremailfeliz():
     message["From"] = sender_email
     message["To"] = receiver_email
     textansioso = """\
-        FALTA ESCREVER
+        Ficamos muito contentes em saber que está sendo proporcionada felicidade dentro da School, continue 
+                utilizando nosso sistema de reports e sinta-se a vontade para reportar qualquer outro sentimento para gente!
         """
     htmlansioso = """\
         <html>
             <body>
-                <p>FALTA ESCREVER
+                <p>Ficamos muito contentes em saber que está sendo proporcionada felicidade dentro da School, continue 
+                utilizando nosso sistema de reports e sinta-se a vontade para reportar qualquer outro sentimento para gente!
                 </p>
 
             </body>
